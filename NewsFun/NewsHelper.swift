@@ -12,7 +12,9 @@ import Alamofire
 class NewsHelper {
     
     func getArticles() {
-        
+        Alamofire.request("https://newsapi.org/v2/top-headlines?country=us&apiKey=2ecc5647618b4ff393e171fa34438f44").responseJSON { (response) in
+            print(response)
+        }
     }
     
 }
