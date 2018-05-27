@@ -15,12 +15,20 @@ class ArticleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getArticles()
+    }
+    
+    @IBAction func reloadTapped(_ sender: Any) {
+        getArticles()
+    }
+    
+    func getArticles() {
         NewsHelper().getArticles { (articles) in
             self.articles = articles
             self.tableView.reloadData()
         }
     }
-
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
