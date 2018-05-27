@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="262" id="UVt-Xi-5jt">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCellIdentifier" rowHeight="262" id="UVt-Xi-5jt" customClass="ArticleCell" customModule="NewsFun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="262"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UVt-Xi-5jt" id="zRe-k3-N52">
@@ -47,7 +47,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-eh-1jj">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-eh-1jj">
                                             <rect key="frame" x="21" y="61" width="333" height="165"/>
                                         </imageView>
                                     </subviews>
@@ -64,6 +64,11 @@
                                         <constraint firstItem="I9A-Dz-pfY" firstAttribute="top" secondItem="zRe-k3-N52" secondAttribute="topMargin" id="yyC-hC-YR7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="articleImageView" destination="OzS-eh-1jj" id="Ajm-1E-KCe"/>
+                                    <outlet property="categoryLabel" destination="2CB-h4-UDJ" id="Rer-Cs-lpV"/>
+                                    <outlet property="titleLabel" destination="I9A-Dz-pfY" id="94e-ML-r9A"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -131,4 +136,7 @@
             <point key="canvasLocation" x="-353" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Filler" width="300" height="160"/>
+    </resources>
 </document>
