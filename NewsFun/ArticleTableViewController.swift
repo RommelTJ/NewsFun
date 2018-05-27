@@ -50,7 +50,8 @@ class ArticleTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "articleCellIdentifier", for: indexPath) as? ArticleCell {
             let article = articles[indexPath.row]
             cell.titleLabel.text = article.title
-            cell.categoryLabel.text = article.category
+            cell.categoryLabel.text = article.category.rawValue
+            cell.categoryLabel.backgroundColor = article.categoryColor
             let url = URL(string: article.urlToImage)
             cell.articleImageView.kf.setImage(with: url, placeholder: UIImage(named: "Filler"), options: nil, progressBlock: nil, completionHandler: nil)
             return cell

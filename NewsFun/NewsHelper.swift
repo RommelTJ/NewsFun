@@ -30,7 +30,24 @@ class NewsHelper {
                         
                         // CoreML
                         guard let classification = DocumentClassifier().classify(description) else { return }
-                        article.category = classification.prediction.category.rawValue
+                        
+                        switch(classification.prediction.category) {
+                        case .business:
+                            article.category = .business
+                            article.categoryColor = UIColor(red: 0.298, green: 0.882, blue: 0.949, alpha: 1)
+                        case .entertainment:
+                            article.category = .entertainment
+                            article.categoryColor = UIColor(red: 0.129, green: 0.788, blue: 0.588, alpha: 1)
+                        case .politics:
+                            article.category = .politics
+                            article.categoryColor = UIColor(red: 0.929, green: 0.667, blue: 0.169, alpha: 1)
+                        case .sports:
+                            article.category = .sports
+                            article.categoryColor = UIColor(red: 0.996, green: 0.847, blue: 0.325, alpha: 1)
+                        case .technology:
+                            article.category = .technology
+                            article.categoryColor = UIColor(red: 0.298, green: 0.882, blue: 0.949, alpha: 1)
+                        }
                         
                         articles.append(article)
                     }
@@ -47,5 +64,14 @@ class Article {
     var urlToImage = ""
     var url = ""
     var description = ""
-    var category = ""
+    var category: NewsCategory = .business
+    var categoryColor = UIColor.red
+}
+
+enum NewsCategory: String {
+    case business = "Business"
+    case entertainment = "Entertainment"
+    case politics = "Politics"
+    case sports = "Sports"
+    case technology = "Technology"
 }
