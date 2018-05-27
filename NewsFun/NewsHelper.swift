@@ -18,3 +18,11 @@ class NewsHelper {
     }
     
 }
+
+class Article {
+    var title = ""
+    var urlToImage = ""
+    var url = ""
+    var description = ""
+    var category = ""
+}
