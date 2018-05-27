@@ -69,9 +69,9 @@ class Article {
 }
 
 enum NewsCategory: String {
-    case business = "Business"
-    case entertainment = "Entertainment"
-    case politics = "Politics"
-    case sports = "Sports"
-    case technology = "Technology"
+    case business = "💼 Business"
+    case entertainment = "🎭 Entertainment"
+    case politics = "🗳 Politics"
+    case sports = "🏀 Sports"
+    case technology = "💻 Technology"
 }
