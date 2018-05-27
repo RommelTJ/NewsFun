@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ArticleTableViewController: UITableViewController {
     
@@ -31,6 +32,8 @@ class ArticleTableViewController: UITableViewController {
             let article = articles[indexPath.row]
             cell.titleLabel.text = article.title
             cell.categoryLabel.text = article.category
+            let url = URL(string: article.urlToImage)
+            cell.articleImageView.kf.setImage(with: url)
             return cell
         }
         return UITableViewCell()
