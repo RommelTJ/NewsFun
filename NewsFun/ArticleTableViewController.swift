@@ -28,6 +28,9 @@ class ArticleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "articleCellIdentifier", for: indexPath) as? ArticleCell {
+            let article = articles[indexPath.row]
+            cell.titleLabel.text = article.title
+            cell.categoryLabel.text = article.category
             return cell
         }
         return UITableViewCell()
