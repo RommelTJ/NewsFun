@@ -36,5 +36,7 @@ class ArticleTableViewController: UITableViewController {
 }
 
 class ArticleCell: UITableViewCell {
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var articleImageView: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
 }
