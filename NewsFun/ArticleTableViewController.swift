@@ -33,7 +33,7 @@ class ArticleTableViewController: UITableViewController {
             cell.titleLabel.text = article.title
             cell.categoryLabel.text = article.category
             let url = URL(string: article.urlToImage)
-            cell.articleImageView.kf.setImage(with: url)
+            cell.articleImageView.kf.setImage(with: url, placeholder: UIImage(named: "Filler"), options: nil, progressBlock: nil, completionHandler: nil)
             return cell
         }
         return UITableViewCell()
