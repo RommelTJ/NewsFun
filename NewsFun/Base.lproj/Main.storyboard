@@ -118,6 +118,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3cN-SQ-wuB"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="619-hu-pf5" id="PHB-uk-dc1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miu-P3-Qgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -29,6 +29,16 @@ class ArticleTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToURLSegue" {
+            if let article = sender as? Article {
+                if let webVC = segue.destination as? ArticleWebViewController {
+                    webVC.article = article
+                }
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,6 +61,10 @@ class ArticleTableViewController: UITableViewController {
         return 260.0
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = articles[indexPath.row]
+        performSegue(withIdentifier: "goToURLSegue", sender: article)
+    }
 }
 
 class ArticleCell: UITableViewCell {
