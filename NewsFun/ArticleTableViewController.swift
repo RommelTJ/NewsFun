@@ -27,10 +27,14 @@ class ArticleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCellIdentifier", for: indexPath)
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "articleCellIdentifier", for: indexPath) as? ArticleCell {
+            return cell
+        }
+        return UITableViewCell()
     }
 
 }
 
-
+class ArticleCell: UITableViewCell {
+    
+}
