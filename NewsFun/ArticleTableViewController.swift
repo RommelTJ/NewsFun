@@ -15,12 +15,31 @@ class ArticleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
+        getArticles()
+    }
+    
+    @IBAction func reloadTapped(_ sender: Any) {
+        getArticles()
+    }
+    
+    func getArticles() {
         NewsHelper().getArticles { (articles) in
             self.articles = articles
             self.tableView.reloadData()
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToURLSegue" {
+            if let article = sender as? Article {
+                if let webVC = segue.destination as? ArticleWebViewController {
+                    webVC.article = article
+                }
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,9 +50,10 @@ class ArticleTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "articleCellIdentifier", for: indexPath) as? ArticleCell {
             let article = articles[indexPath.row]
             cell.titleLabel.text = article.title
-            cell.categoryLabel.text = article.category
+            cell.categoryLabel.text = article.category.rawValue
+            cell.categoryLabel.backgroundColor = article.categoryColor
             let url = URL(string: article.urlToImage)
-            cell.articleImageView.kf.setImage(with: url)
+            cell.articleImageView.kf.setImage(with: url, placeholder: UIImage(named: "Filler"), options: nil, progressBlock: nil, completionHandler: nil)
             return cell
         }
         return UITableViewCell()
@@ -43,6 +63,10 @@ class ArticleTableViewController: UITableViewController {
         return 260.0
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = articles[indexPath.row]
+        performSegue(withIdentifier: "goToURLSegue", sender: article)
+    }
 }
 
 class ArticleCell: UITableViewCell {
