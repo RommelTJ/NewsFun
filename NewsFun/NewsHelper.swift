@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import DocumentClassifier
 
 class NewsHelper {
     
@@ -26,6 +27,11 @@ class NewsHelper {
                         article.urlToImage = urlToImage
                         article.url = url
                         article.description = description
+                        
+                        // CoreML
+                        guard let classification = DocumentClassifier().classify(description) else { return }
+                        article.category = classification.prediction.category.rawValue
+                        
                         articles.append(article)
                     }
                 }
