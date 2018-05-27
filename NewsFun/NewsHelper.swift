@@ -34,6 +34,7 @@ class NewsHelper {
                         
                         articles.append(article)
                     }
+                    returnArticles(articles)
                 }
             }
         }

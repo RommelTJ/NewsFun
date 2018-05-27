@@ -9,10 +9,14 @@
 import UIKit
 
 class ArticleTableViewController: UITableViewController {
+    
+    var articles: [Article] = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NewsHelper().getArticles()
+        NewsHelper().getArticles { (articles) in
+            self.articles = articles
+        }
     }
 
     // MARK: - Table view data source
