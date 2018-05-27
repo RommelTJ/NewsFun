@@ -47,7 +47,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-eh-1jj">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-eh-1jj">
                                             <rect key="frame" x="21" y="61" width="333" height="165"/>
                                         </imageView>
                                     </subviews>
@@ -136,4 +136,7 @@
             <point key="canvasLocation" x="-353" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Filler" width="300" height="160"/>
+    </resources>
 </document>
